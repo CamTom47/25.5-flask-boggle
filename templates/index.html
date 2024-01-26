@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boggle</title>
+</head>
+<body>
+  
+  <section id="boggle">
+    <h2>Timer</h2>
+    <p class="timer">
+      <!-- Game timer will display here -->
+    </p>
+
+      <table id="boggle-board">
+        {%for row in board%}
+        <tr>
+          {%for cell in row%}
+          <td>{{cell}}</td>
+          {%endfor%}
+        </tr>
+        {%endfor%}
+        
+      </table>
+      
+      <h2>Score</h2>
+      <p class="score">
+        <!-- The player's score will display here -->
+
+      </p>
+      
+      <form method="POST" class="add-word">
+        <input type="text" name="word" class="word" autofocus>
+        <button>Submit</button>
+      </form>
+
+      <p class="msg">
+        <!-- Message results of guess will display here -->
+      </p>
+
+      <ul class="words">
+        <!-- Words that were already found will display here -->
+      </ul>
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+      <script src="/static/app.js"></script>
+      <script>
+        let game = new BoggleGame("boggle", 60);
+        </script>
+      </section>
+</body>
+</html>
